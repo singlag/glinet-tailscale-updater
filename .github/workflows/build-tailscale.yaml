@@ -60,7 +60,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ env.REPO }}
-          ref: ${{ env.TAG }}
+          #ref: ${{ env.TAG }}
+          ref: release-branch/1.66
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
