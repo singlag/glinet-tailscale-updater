@@ -93,7 +93,8 @@ jobs:
       - check-versions
     if: needs.check-versions.outputs.TAG_SMALL != needs.check-versions.outputs.TAG
     env:
-      TAG: ${{ needs.check-versions.outputs.TAG }}
+      #TAG: ${{ needs.check-versions.outputs.TAG }}
+      TAG: "1.66.4"
     steps:
       - name: Get UPX latest version
         id: get-upx-version
