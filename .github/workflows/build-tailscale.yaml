@@ -128,9 +128,10 @@ jobs:
             if [[ "$file" == *"mips64"* || "$file" == *"mips64le"* ]]; then
               echo "Skipping UPX compression for $file due to unsupported format"
             else
+              ##"${PWD}/upx" --lzma --best --no-progress "$file"
+              cp "$file" "${file}.combined"
               "${PWD}/upx" --lzma --best --no-progress "$file"
-              ##
-              mv "$file" "${file}.upx"
+              mv "$file" "${file}.combined"
             fi
           done
       - name: Create checksums
@@ -166,8 +167,6 @@ jobs:
           prerelease: false
           artifacts: |
             ${{ env.FILE_NAME }}-*
-            ##
-            ${{ env.FILE_NAME }}-*.upx
             checksums.txt
             version.txt
           body: |
