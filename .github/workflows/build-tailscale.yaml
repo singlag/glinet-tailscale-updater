@@ -131,7 +131,7 @@ jobs:
               ##"${PWD}/upx" --lzma --best --no-progress "$file"
               cp "$file" "${file}.combined"
               "${PWD}/upx" --lzma --best --no-progress "$file"
-              mv "$file" "${file}.combined"
+              mv "$file" "${file}.UPX"
             fi
           done
       - name: Create checksums
