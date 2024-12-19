@@ -129,6 +129,7 @@ jobs:
               echo "Skipping UPX compression for $file due to unsupported format"
             else
               "${PWD}/upx" --lzma --best --no-progress "$file"
+              ##
               mv "$file" "${file}.upx"
             fi
           done
@@ -165,6 +166,7 @@ jobs:
           prerelease: false
           artifacts: |
             ${{ env.FILE_NAME }}-*
+            ##
             ${{ env.FILE_NAME }}-*.upx
             checksums.txt
             version.txt
